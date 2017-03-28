@@ -2,7 +2,7 @@
 if (isset($_GET['code'])) {
 	$code = $_GET['code'];
 } else {
-	$code = 000000000;
+	$code = -1;
 }
 
 include('function.php');
