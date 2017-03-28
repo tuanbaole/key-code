@@ -49,6 +49,7 @@
 				        echo "<td>".$row["created"]."</td>";
 				        echo "<td>
 				        	<a href='active.php?code=".$row["code"]."'>Active</a> 
+				        	<a href='noActive.php?code=".$row["code"]."'>No Active</a> 
 				        	<a href='delete.php?id=".$row["id"]."'>Delete</a>
 				        	</td>";
 				        echo "</tr>";
