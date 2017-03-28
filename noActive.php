@@ -4,7 +4,6 @@ if (isset($_GET['code'])) {
 } else {
 	$code = -1;
 }
-
 include('function.php');
 $db = informationDb();
 // Create connection
@@ -16,10 +15,10 @@ if (!$conn) {
 
 $sql = "SELECT * FROM `codes` WHERE `code`='".$code."' AND `active`=1 ";
 $result = mysqli_query($conn, $sql);
-
 if (mysqli_num_rows($result) === 1) {
 	$row = mysqli_fetch_assoc($result);
-	$update = "UPDATE `codes` SET `active`=0 WHERE `id`=".$row['id'];
+	$update = "UPDATE `codes` SET `active`=0 WHERE `id`=".$row['id'].";";
+	
 	if ($conn->query($update) === TRUE) {
 	    $return = true;
 	} else {

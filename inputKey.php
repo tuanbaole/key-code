@@ -14,21 +14,21 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM `codes` WHERE `code`='".$code."' AND `active`=0 ";
+$sql = "SELECT * FROM `codes` WHERE `code`='".$code."'  AND `active`=0 ";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) === 1) {
 	$row = mysqli_fetch_assoc($result);
 	$update = "UPDATE `codes` SET `active`=1 WHERE `id`=".$row['id'];
 	if ($conn->query($update) === TRUE) {
-	    $return = true;
+	    $return = 'true';
 	} else {
-	    $return = false;
+	    $return = 'false';
 	}
 } else {
-    $return = false;
+    $return = 'false';
 }
 
 mysqli_close($conn); 
 
-return $return;
+echo $return;
